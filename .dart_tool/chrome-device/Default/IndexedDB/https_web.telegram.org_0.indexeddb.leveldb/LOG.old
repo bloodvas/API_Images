@@ -1,0 +1,11 @@
+2022/07/01-10:16:49.807 33ac Creating DB C:\Users\DEATHN~1\AppData\Local\Temp\flutter_tools.d914f3dc\flutter_tools_chrome_device.6465c944\Default\IndexedDB\https_web.telegram.org_0.indexeddb.leveldb since it was missing.
+2022/07/01-10:16:49.809 33ac Reusing MANIFEST C:\Users\DEATHN~1\AppData\Local\Temp\flutter_tools.d914f3dc\flutter_tools_chrome_device.6465c944\Default\IndexedDB\https_web.telegram.org_0.indexeddb.leveldb/MANIFEST-000001
+2022/07/01-10:17:17.009 fe0 Level-0 table #5: started
+2022/07/01-10:17:17.024 fe0 Level-0 table #5: 2637922 bytes OK
+2022/07/01-10:17:17.025 fe0 Delete type=0 #3
+2022/07/01-10:18:06.505 ab8 Level-0 table #7: started
+2022/07/01-10:18:06.519 ab8 Level-0 table #7: 2610786 bytes OK
+2022/07/01-10:18:06.520 ab8 Delete type=0 #4
+2022/07/01-10:35:09.035 3928 Level-0 table #9: started
+2022/07/01-10:35:09.047 3928 Level-0 table #9: 2622222 bytes OK
+2022/07/01-10:35:09.049 3928 Delete type=0 #6
