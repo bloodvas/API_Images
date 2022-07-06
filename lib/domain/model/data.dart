@@ -32,17 +32,15 @@ class Data {
   //     };
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        // id: json["id"],
-        description: (json["description"] != null)
-            ? json["description"]
-            : 'description is missing',
-        altDescription: (json["name"] != null)
-            ? json["name"]
-            : 'alt_description is missing',
-        url: (json["image"]["name"] != null)
-            ? json["image"]["name"]
-            : 'image is missing',
-      );
+      // id: json["id"],
+      description: (json["description"] != null)
+          ? json["description"]
+          : 'description is missing',
+      altDescription:
+          (json["name"] != null) ? json["name"] : 'alt_description is missing',
+      url: (json["image"]["name"] != null)
+          ? 'http://gallery.prod1.webant.ru/media/${json["image"]["name"]}'
+          : 'images is missing');
 
   Map<String, dynamic> toJson() => {
         // "id": id,

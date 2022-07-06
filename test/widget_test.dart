@@ -6,7 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/internal/pages/Navigator/navigator.dart';
+import 'package:flutter_application_3/internal/pages/navigator/page_menu.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
