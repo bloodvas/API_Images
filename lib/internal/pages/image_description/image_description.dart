@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_3/domain/model/data.dart';
 
 class ImageDescription extends StatefulWidget {
-  final List<Data?> imageList;
+  final List<ImageData?> imageList;
   final int index;
   final String title;
   const ImageDescription(this.imageList, this.index, this.title, {Key? key})

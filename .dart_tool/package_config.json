@@ -27,7 +27,7 @@
     },
     {
       "name": "bloc",
-      "rootUri": "file:///S:/practic/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/bloc-7.2.1",
+      "rootUri": "file:///S:/practic/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/bloc-8.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -183,7 +183,7 @@
     },
     {
       "name": "flutter_bloc",
-      "rootUri": "file:///S:/practic/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.3",
+      "rootUri": "file:///S:/practic/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-8.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -298,12 +298,6 @@
     {
       "name": "package_config",
       "rootUri": "file:///S:/practic/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/package_config-2.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "pagination_view",
-      "rootUri": "file:///S:/practic/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/pagination_view-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -452,7 +446,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-07-06T07:42:13.613418Z",
+  "generated": "2022-07-09T12:46:34.511295Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }
