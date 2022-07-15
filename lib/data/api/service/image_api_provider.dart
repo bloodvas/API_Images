@@ -5,12 +5,12 @@ class ImageProvider {
   final Dio dio = Dio();
   final String baseUrl = 'http://gallery.prod1.webant.ru/api/photos';
 
-  dynamic getImages({required page}) async {
+  dynamic getImages({required page, required categoria}) async {
     Response response = await dio.get(baseUrl, queryParameters: {
       'page': page,
       'limit': 10,
-      'popular': true,
-      'new': true,
+      'popular': categoria == 'popular' ? true : false,
+      'new': categoria == 'new' ? true : false,
     });
     if (response.statusCode == 200) {
       List<ImageData> imageList = [];

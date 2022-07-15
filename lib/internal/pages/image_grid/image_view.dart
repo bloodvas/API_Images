@@ -9,10 +9,11 @@ import 'package:flutter_application_3/internal/pages/not_connection_error/not_co
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ImageGrid extends StatefulWidget {
-  int page = 2;
+  int page;
   final String title;
   final List<ImageData> imageList;
-  ImageGrid(this.title, this.imageList, {Key? key}) : super(key: key);
+  ImageGrid(this.title, this.imageList, this.page, {Key? key})
+      : super(key: key);
   @override
   State<ImageGrid> createState() => _ImageGridState();
 }
@@ -23,10 +24,12 @@ class _ImageGridState extends State<ImageGrid> {
   @override
   void initState() {
     final ImageBloc imageBloc = context.read<ImageBloc>();
+    imageBloc.add(ImageLoadEvent(widget.page));
+    widget.page++;
     _controller.addListener(() {
       if (_controller.position.pixels == _controller.position.maxScrollExtent) {
         setState(() {
-          imageBloc.add(ImageLoadEvent(page: widget.page));
+          imageBloc.add(ImageLoadEvent(widget.page));
           widget.page++;
         });
       }
@@ -67,6 +70,7 @@ class _ImageGridState extends State<ImageGrid> {
 
         if (state is ImageLoadingState) {
           return Container(
+            margin: EdgeInsets.only(bottom: 100),
             alignment: Alignment.bottomCenter,
             child: const CircularProgressIndicator(
               color: Color.fromARGB(255, 255, 0, 115),
@@ -80,7 +84,15 @@ class _ImageGridState extends State<ImageGrid> {
             triggerMode: RefreshIndicatorTriggerMode.onEdge,
             backgroundColor: Color.fromARGB(0, 255, 255, 255),
             color: const Color.fromARGB(255, 255, 0, 115),
-            onRefresh: (() => _refreshData(context)),
+            onRefresh: (() async {
+              await Future.delayed(const Duration(seconds: 3));
+              final ImageBloc imageBloc = context.read<ImageBloc>();
+              imageBloc.add(ImageClearEvent());
+              imageBloc.add(ImageLoadEvent(1));
+              setState(() {
+                widget.page = 2;
+              });
+            }),
             child: GridView.count(
               controller: _controller,
               physics:
@@ -120,9 +132,10 @@ class _ImageGridState extends State<ImageGrid> {
   }
 }
 
-Future<void> _refreshData(BuildContext context) async {
-  await Future.delayed(Duration(seconds: 3));
-  final ImageBloc imageBloc = context.read<ImageBloc>();
-  imageBloc.add(ImageClearEvent());
-  imageBloc.add(ImageLoadEvent());
-}
+// Future<int> _refreshData(BuildContext context, int page) async {
+//   await Future.delayed(const Duration(seconds: 3));
+//   final ImageBloc imageBloc = context.read<ImageBloc>();
+//   imageBloc.add(ImageClearEvent());
+//   imageBloc.add(ImageLoadEvent(1));
+//   return 1;
+// }

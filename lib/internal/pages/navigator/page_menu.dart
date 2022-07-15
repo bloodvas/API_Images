@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   static const String _title = 'Flutter Code Sample';
   List<ImageData> imagePopularList = [];
   List<ImageData> imageNewList = [];
+  int page = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,9 @@ class MyApp extends StatelessWidget {
       title: _title,
       initialRoute: '/popular',
       routes: <String, WidgetBuilder>{
-        '/popular': (context) => SomethingPage('popular', 0, imagePopularList),
-        '/new': (context) => SomethingPage('new', 1, imageNewList),
+        '/popular': (context) =>
+            SomethingPage('popular', 0, imagePopularList, page),
+        '/new': (context) => SomethingPage('new', 1, imageNewList, page),
       },
     );
   }
@@ -31,8 +33,9 @@ class SomethingPage extends StatefulWidget {
   final int flag;
   final String title;
   final List<ImageData> imageList;
+  int page;
 
-  const SomethingPage(this.title, this.flag, this.imageList, {Key? key})
+  SomethingPage(this.title, this.flag, this.imageList, this.page, {Key? key})
       : super(key: key);
 
   @override
@@ -46,15 +49,15 @@ class _SomethingPageState extends State<SomethingPage> {
       create: (context) => ImageRepository(),
       child: BlocProvider(
         create: (context) => ImageBloc(
+            categoria: widget.title,
             loadedImageList: widget.imageList,
-            imageRepository: context.read<ImageRepository>())
-          ..add(ImageLoadEvent()),
+            imageRepository: context.read<ImageRepository>()),
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: const Color.fromARGB(255, 255, 0, 115),
             title: Text(widget.title.toUpperCase()),
           ),
-          body: ImageGrid(widget.title, widget.imageList),
+          body: ImageGrid(widget.title, widget.imageList, widget.page),
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
